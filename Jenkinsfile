@@ -4,14 +4,6 @@ pipeline {
       image 'maven:3.5.2-jdk-8'
     }
   }
-options {
-    timestamps()
-  }  
-  environment {
-    // Use Pipeline Utility Steps plugin to read information from pom.xml into env variables
-    // IMAGE = maven.readMavenPom().getArtifactId()
-    // VERSION = maven.readMavenPom().getVersion()
-  }
   stages {
     stage('Clean') {
       steps {
