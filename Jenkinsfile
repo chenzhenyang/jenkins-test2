@@ -4,8 +4,9 @@ node{
 	     	checkout scm
 	     	sh 'mvn package -Dmaven.test.skip=true'
 	     }    
-	     //打包镜像
-	     docker.withRegistry('registry.cn-hangzhou.aliyuncs.com', 'aliyun') {
+     }
+     stage("DockerImage"){
+         docker.withRegistry('registry.cn-hangzhou.aliyuncs.com', 'aliyun') {
 	     	sh "start build docker image...."
   		 	def newApp = docker.build "fengxin58/jenkins-test2:0.0.1.RELEASE"
 	     	newApp.push();
