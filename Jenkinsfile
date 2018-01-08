@@ -28,6 +28,9 @@ pipeline {
     stage('Fake Docker Image') {
       steps {
         sh 'echo fake docker image'
+        node{
+        	docker.build("test:least")
+        }
       }
     }
   }
