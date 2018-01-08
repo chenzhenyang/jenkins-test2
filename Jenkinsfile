@@ -11,7 +11,7 @@ node{
      }
      
      
-     stage("Build and Publish Image"){
+     stage("Build and Publish Docker Image"){
      	  sh "echo start build docker image...."
 //	      when {
 //	        branch 'master'
@@ -21,7 +21,12 @@ node{
 	     	newApp.push();
 		 } 
      }
-     stage("DeployToAliyunDockerSwarmCluster"){
+     
+     stage('Quality Analysis') {
+     	sh "echo quality analysis...."
+     }
+     
+     stage("Deploy Docker Image"){
          sh "echo deploy to aliyun docker swarm cluster...."
      }
 }
