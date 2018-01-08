@@ -9,12 +9,19 @@ node{
     		VERSION=model.getVersion()
 	     }
      }
-     stage("BuildDockerImageAndPushToAliyun"){
-     	 sh "echo start build docker image...."
-         docker.withRegistry('http://registry.cn-hangzhou.aliyuncs.com', 'aliyun') {
-  		 	def newApp = docker.build "fengxin58/${IMAGE}:${VERSION}"
-	     	newApp.push();
-		 }
+     
+     
+     stage("Build and Publish Image"){
+	      when {
+	        branch 'master'  //only run these steps on the master branch
+	      }
+	      steps{
+	         sh "echo start build docker image...."
+	         docker.withRegistry('http://registry.cn-hangzhou.aliyuncs.com', 'aliyun') {
+	  		 	def newApp = docker.build "fengxin58/${IMAGE}:${VERSION}"
+		     	newApp.push();
+			 } 
+	      }
      }
      stage("DeployToAliyunDockerSwarmCluster"){
          sh "echo deploy to aliyun docker swarm cluster...."
