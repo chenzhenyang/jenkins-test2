@@ -5,9 +5,8 @@ node{
 	     	sh 'mvn package -Dmaven.test.skip=true'
 	     	sh "echo start read maven pom.xml"
 	     	model = readMavenPom()
-	     	println model
-	     	println model.getArtifactId()
-    		println model.getVersion()
+	     	IMAGE= model.getArtifactId()
+    		VERSION model.getVersion()
 	     }
      }
      stage("BuildDockerImageAndPushToAliyun"){
