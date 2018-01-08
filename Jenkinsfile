@@ -2,7 +2,7 @@ node{
      stage("Build"){
 	     docker.image("maven:3.5.2-jdk-8").inside {
 	     	checkout scm
-	     	sh 'mvn package -Dmaven.test.skip=true'
+	     	sh 'mvn package'
 	     }    
      }
      stage("DockerImage"){
