@@ -3,6 +3,7 @@ node{
 	     docker.image("maven:3.5.2-jdk-8").inside {
 	     	checkout scm
 	     	sh 'mvn package -Dmaven.test.skip=true'
+	     	sh "echo start read maven pom.xml"
 	     	model = readMavenPom()
 	     	println model.getArtifactId()
 	     	println model.getVersion()
