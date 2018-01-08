@@ -7,6 +7,7 @@ pipeline {
   stages {
     stage('Clean') {
       steps {
+      	sh 'echo clean is starting.....'
         sh 'mvn -B clean'
       }
     }
