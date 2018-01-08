@@ -5,7 +5,7 @@ node{
 	     	sh 'mvn package -Dmaven.test.skip=true'
 	     	sh "echo start read maven pom.xml"
 	     	model = readMavenPom()
-	     	println model
+	     	println "model"model
 	     	sh "echo read success"
 	     	model.getArtifactId()
 	     	sh "echo read artifactid success"
