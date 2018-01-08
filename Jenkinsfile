@@ -13,9 +13,9 @@ node{
      
      stage("Build and Publish Image"){
      	  sh "echo start build docker image...."
-	      when {
-	        branch 'master'
-	      }
+//	      when {
+//	        branch 'master'
+//	      }
          docker.withRegistry('http://registry.cn-hangzhou.aliyuncs.com', 'aliyun') {
   		 	def newApp = docker.build "fengxin58/${IMAGE}:${VERSION}"
 	     	newApp.push();
