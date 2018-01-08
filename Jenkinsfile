@@ -1,7 +1,4 @@
 node{
-	options {
-    timestamps()
-  }
 def IMAGE
 def VERSION
      stage("Build"){
