@@ -11,7 +11,9 @@ node{
 	     }    
      }
      stage("Fake Docker Image"){
-     	docker.build()	                
+     	steps{
+     		docker.build()    
+     	}
      }
 
 }
