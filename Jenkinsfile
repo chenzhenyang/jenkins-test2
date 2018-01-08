@@ -13,15 +13,13 @@ node{
      
      stage("Build and Publish Image"){
      	  sh "echo start build docker image...."
-//	      when {
-//	        branch 'master'
-//	      }
-	      steps{
-	         docker.withRegistry('http://registry.cn-hangzhou.aliyuncs.com', 'aliyun') {
-	  		 	def newApp = docker.build "fengxin58/${IMAGE}:${VERSION}"
-		     	newApp.push();
-			 } 
+	      when {
+	        branch 'master'
 	      }
+         docker.withRegistry('http://registry.cn-hangzhou.aliyuncs.com', 'aliyun') {
+  		 	def newApp = docker.build "fengxin58/${IMAGE}:${VERSION}"
+	     	newApp.push();
+		 } 
      }
      stage("DeployToAliyunDockerSwarmCluster"){
          sh "echo deploy to aliyun docker swarm cluster...."
