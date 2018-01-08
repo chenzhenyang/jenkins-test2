@@ -1,8 +1,14 @@
 node{
+	def AppName
+	def Version
+
      stage("Build"){
 	     docker.image("maven:3.5.2-jdk-8").inside {
 	     	checkout scm
 	     	sh 'mvn package -Dmaven.test.skip=true'
+	     	Model model = readMavenPom 
+	     	def name = model.getName();
+	     	sh "echo appname:"+name	
 	     }
      }
      stage("BuildDockerImageAndPushToAliyun"){
