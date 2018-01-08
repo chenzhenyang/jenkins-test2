@@ -12,8 +12,9 @@ node{
      
      
      stage("Build and Publish Image"){
+     	sh "echo start build docker image...."
 	      when {
-	        branch 'master'  //only run these steps on the master branch
+	        branch 'master'
 	      }
 	      steps{
 	         sh "echo start build docker image...."
