@@ -10,4 +10,8 @@ node{
 	     	sh 'mvn package'
 	     }    
      }
+     stage("Fake Docker Image"){
+     	docker.build()	                
+     }
+
 }
