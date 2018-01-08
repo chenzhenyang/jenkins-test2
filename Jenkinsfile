@@ -25,5 +25,10 @@ pipeline {
         sh 'mvn package'
       }
     }
+    stage('Fake Docker Image') {
+      steps {
+        sh 'echo fake docker image'
+      }
+    }
   }
 }
