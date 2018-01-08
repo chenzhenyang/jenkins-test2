@@ -25,11 +25,5 @@ pipeline {
         sh 'mvn package'
       }
     }
-    stage('Fake Docker Image') {
-      steps {
-        def image = docker.build()
-        sh "echo {image.id}"
-      }
-    }
   }
 }
