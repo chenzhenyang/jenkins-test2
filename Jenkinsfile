@@ -29,10 +29,4 @@ node{
      stage("Deploy Docker Image"){
          sh "echo deploy to aliyun docker swarm cluster...."
      }
-     
-     post {
-	    failure {
-	    	sh "echo failure...."	
-	    }
-  	 }
 }
