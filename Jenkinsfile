@@ -6,7 +6,7 @@ node{
 	     	model = readMavenPom()
 	     	println model.getArtifactId()
 	     	println model.getVersion()
-	     	
+	     	sh "echo read success"
 	     	IMAGE = readMavenPom().getArtifactId()
     		VERSION = readMavenPom().getVersion()
 	     }
