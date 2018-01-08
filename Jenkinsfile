@@ -6,8 +6,10 @@ node{
 	     	sh "echo start read maven pom.xml"
 	     	model = readMavenPom()
 	     	sh "echo read success"
-	     	IMAGE = readMavenPom().getArtifactId()
+	     	readMavenPom().getArtifactId()
+	     	sh "echo read artifactid success"
     		VERSION = readMavenPom().getVersion()
+    		sh "echo read version success"
 	     }
      }
      stage("BuildDockerImageAndPushToAliyun"){
