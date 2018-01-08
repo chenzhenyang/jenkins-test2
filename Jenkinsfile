@@ -7,9 +7,9 @@ node{
 	     	model = readMavenPom()
 	     	println model
 	     	sh "echo read success"
-	     	readMavenPom().getArtifactId()
+	     	model.getArtifactId()
 	     	sh "echo read artifactid success"
-    		VERSION = readMavenPom().getVersion()
+    		VERSION = model.getVersion()
     		sh "echo read version success"
 	     }
      }
