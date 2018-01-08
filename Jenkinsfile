@@ -6,7 +6,7 @@ node{
 	     }    
      }
      stage("BuildDockerImage"){
-     	 sh "start build docker image...."
+     	 sh "echo start build docker image...."
          docker.withRegistry('registry.cn-hangzhou.aliyuncs.com', 'aliyun') {
   		 	def newApp = docker.build "fengxin58/jenkins-test2:0.0.1-SNAPSHOT"
 	     	newApp.push();
